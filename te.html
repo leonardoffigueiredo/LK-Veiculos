@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoLuxo - Seu Carro dos Sonhos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style-TESTE.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">AutoLuxo</div>
+                <div class="nav-links">
+                    <a href="#carros-novos">Carros Novos</a>
+                    <a href="#carros-usados">Carros Usados</a>
+                    <a href="#financiamento">Financiamento</a>
+                    <a href="#contato">Contate-Nos</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Encontre o Carro dos Seus Sonhos</h1>
+                <p>Qualidade, confiança e as melhores ofertas do mercado</p>
+                <a href="#carros-destaque" class="btn">Ver Destaques</a>
+            </div>
+        </section>
+
+        <section id="carros-destaque" class="featured-cars">
+            <div class="container">
+                <h2>Carros em Destaque</h2>
+                <div class="car-grid">
+                    <!-- Exemplo de card de carro -->
+                    <div class="car-card">
+                        <img src="" alt="Carro 1" class="car-image">
+                        <div class="car-info">
+                            <h3>Modelo do Carro</h3>
+                            <p>Breve descrição do carro</p>
+                            <p class="car-price">R$ 99.999,00</p>
+                            <a href="#" class="btn">Saiba Mais</a>
+                        </div>
+                    </div>
+                    <!-- Adicione mais cards de carros aqui -->
+                </div>
+            </div>
+        </section>
+
+        <section id="carros-novos" class="car-section">
+            <div class="container">
+                <h2>Carros Novos</h2>
+                <div class="car-grid">
+                    <!-- Exemplo de card de carro novo -->
+                    <div class="car-card">
+                        <img src="https://example.com/novo-carro1.jpg" alt="Carro Novo 1" class="car-image">
+                        <div class="car-info">
+                            <h3>Modelo Novo 2023</h3>
+                            <p>O mais recente lançamento com tecnologia de ponta</p>
+                            <p class="car-price">R$ 120.000,00</p>
+                            <a href="#" class="btn">Ver Detalhes</a>
+                        </div>
+                    </div>
+                    <!-- Adicione mais cards de carros novos aqui -->
+                </div>
+            </div>
+        </section>
+
+        <section id="carros-usados" class="car-section">
+            <div class="container">
+                <h2>Carros Usados</h2>
+                <div class="car-grid">
+                    <!-- Exemplo de card de carro usado -->
+                    <div class="car-card">
+                        <img src="https://example.com/usado-carro1.jpg" alt="Carro Usado 1" class="car-image">
+                        <div class="car-info">
+                            <h3>Modelo Seminovo 2020</h3>
+                            <p>Excelente estado, baixa quilometragem</p>
+                            <p class="car-price">R$ 75.000,00</p>
+                            <a href="#" class="btn">Ver Detalhes</a>
+                        </div>
+                    </div>
+                    <!-- Adicione mais cards de carros usados aqui -->
+                </div>
+            </div>
+        </section>
+
+        <section id="financiamento" class="finance-section">
+            <div class="container">
+                <h2>Financiamento</h2>
+                <p>Oferecemos as melhores opções de financiamento do mercado.</p>
+                <ul>
+                    <li>Taxas a partir de 0,99% ao mês</li>
+                    <li>Entrada facilitada</li>
+                    <li>Aprovação rápida</li>
+                </ul>
+                <a href="#" class="btn" id="simularFinanciamento">Simular Financiamento</a>
+            </div>
+        </section>
+
+        <div id="popupFinanciamento" class="popup">
+            <div class="popup-content">
+                <h3>Simulação de Financiamento</h3>
+                <input type="number" id="valorFinanciamento" placeholder="Valor a financiar">
+                <select id="parcelas">
+                    <option value="12">12 vezes</option>
+                    <option value="24">24 vezes</option>
+                    <option value="36">36 vezes</option>
+                    <option value="48">48 vezes</option>
+                </select>
+                <button id="calcularFinanciamento">Calcular</button>
+                <p id="resultadoFinanciamento"></p>
+                <button id="fecharPopup">Fechar</button>
+            </div>
+        </div>
+
+
+        <section id="contato" class="contact-section">
+            <div class="container">
+                <h2>Contate-Nos</h2>
+                <form>
+                    <input type="text" placeholder="Nome" required>
+                    <input type="email" placeholder="E-mail" required>
+                    <input type="tel" placeholder="Telefone">
+                    <textarea placeholder="Mensagem" required></textarea>
+                    <button type="submit" class="btn">Enviar Mensagem</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 AutoLuxo. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+<script>
+    
+</script>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LK Veículos</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha384-xGj2J0lFztE5v/vO2wfxv7Zve1Ra1F0aQ+hOwL6zBRHg3dK6blCHf3w4xgiZwFEk" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="header">
+    <a href="index.html" class="logo">LK Veículos</a>
+    <div class="header-right">
+      <a href="index.html">Home</a>
+      <a class="active" href="vehicles.html">Veículos</a>
+      <a href="sobre-nos.html">Sobre Nós</a>
+    </div>
+  </div>
+
+  <section class="vehicles">
+    <div class="container">
+      <h2>Alguns dos nossos veículos disponíveis</h2>
+      <ul id="vehicle-list">
+      </ul>
+    </div>
+  </section>
+
+  <button class="floating-button" onclick="openContactForm()">
+    <i class="fas fa-phone"></i>
+  </button>
+
+  <div id="contact-form-overlay" class="overlay">
+    <div class="contact-form">
+      <span class="close-btn" onclick="closeContactForm()">&times;</span>
+      <h2>Entre em Contato</h2>
+      <form id="contact-form" onsubmit="submitForm(event)">
+        <input type="text" placeholder="Seu Nome" required>
+        <input type="email" placeholder="Seu Email" required>
+        <textarea placeholder="Sua Mensagem" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer">
+      <div class="row">
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+      </div>
+
+      <div class="row">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="vehicles.html">Veículos</a></li>
+          <li><a href="sobre-nos.html">Sobre Nós</a></li>
+        </ul>
+      </div>
+
+      <div class="row">
+        Copyright © 2024 LK Veículos - Todos os Direitos Reservados
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Lista 22de carros disponíveis
+    const vehicles = [
+      {
+        name: 'ASTON MARTIN DBS',
+        preDescription: '2022/2023',
+        description: 'Automático é a última edição de uma linha icônica de supercarros britânicos, combinando potência bruta e luxo refinado. Equipado com um motor V12 de 5.2 litros biturbo, este modelo exclusivo gera impressionantes 770 cavalos de potência, proporcionando uma experiência de condução emocionante com aceleração explosiva e desempenho dinâmico.',
+        image: 'aston-martin.png',
+        link: 'https://webmotors.com.br/comprar/aston-martin/dbs/52-v12-turbo-gasolina-770-ultimate-coupe-automatico/4-portas/2022-2023/53091845?pos=b53091845g:&np=1',
+        price: 'R$ 4.900.000'
+      },
+      {
+        name: 'MCLAREN 765LT',
+        preDescription: '2020/2021',
+        description: 'Supercarro de alto desempenho que redefine os limites de velocidade e agilidade. Equipado com um motor V8 biturbo de 4.0 litros, o 765LT entrega impressionantes 765 cavalos de potência e 800 Nm de torque, proporcionando uma aceleração de 0 a 100 km/h em apenas 2,8 segundos. O modelo "Longtail" (LT) representa a filosofia da McLaren de leveza extrema e aerodinâmica aprimorada, com um chassi de fibra de carbono e componentes que reduzem o peso total do veículo.',
+        image: 'mclaren.png',
+        link: 'https://www.webmotors.com.br/comprar/mclaren/765lt/40-v8-turbo-gasolina-ssg/4-portas/2020-2021/51740909?pos=a51740909g:&np=1',
+        price: 'R$ 5.600.000'
+      },
+      {
+        name: 'LAMBORGHINI AVENTADOR',
+        preDescription: '2020/2021',
+        description: 'Supercarro conversível de alto desempenho que combina potência bruta com uma experiência de direção ao ar livre incomparável. Equipado com um motor V12 naturalmente aspirado de 6.5 litros, este modelo entrega 770 cavalos de potência e 720 Nm de torque, permitindo uma aceleração de 0 a 100 km/h em apenas 2,9 segundos. O sistema de tração integral (LP 770-4) garante aderência excepcional e controle dinâmico, enquanto a transmissão ISR (Independent Shifting Rods) de 7 velocidades proporciona trocas de marcha rápidas e precisas.',
+        image: 'lamborghini.png',
+        link: 'https://www.webmotors.com.br/comprar/lamborghini/aventador/65-v12-gasolina-lp-770-4-svj-roadster-isr/2-portas/2020-2021/53870883?pos=b53870883g:&np=1',
+        price: 'R$ 9.500.000'
+      },
+      {
+        name: 'MERCEDES-BENZ EQS 53 AMG',
+        preDescription: '2023/2023',
+        description: 'O primeiro sedã de luxo totalmente elétrico da divisão de alta performance AMG, combinando o conforto de um sedã premium com o desempenho dinâmico característico da marca. Equipado com dois motores elétricos que proporcionam tração integral (4MATIC), o EQS 53 AMG entrega até 761 cavalos de potência com o pacote AMG Dynamic Plus, garantindo uma aceleração impressionante de 0 a 100 km/h em apenas 3,4 segundos.',
+        image: 'mercedes-amg-eqs.png',
+        link: 'https://www.webmotors.com.br/comprar/mercedes-benz/eqs-53-amg/4matic-eletrico/4-portas/2023/53299528?pos=d53299528g:&np=1',
+        price: 'R$ 1.990.000'
+      },
+      {
+        name: 'FERRARI 296 GTB',
+        preDescription: '2023/2024',
+        description: 'Supercarro híbrido que representa a inovação da Ferrari na combinação de performance, eficiência e tecnologia de ponta. Equipado com um motor V6 biturbo de 3.0 litros, aliado a um motor elétrico, o 296 GTB entrega uma potência combinada de 830 cavalos, proporcionando uma aceleração de 0 a 100 km/h em apenas 2,9 segundos. A tecnologia híbrida PHEV (Plug-in Hybrid Electric Vehicle) permite que o carro opere em modo totalmente elétrico por curtas distâncias, contribuindo para uma condução mais eficiente e ecológica sem comprometer o desempenho esportivo. ',
+        image: 'ferrari-296.png',
+        link: 'https://www.webmotors.com.br/comprar/ferrari/296-gtb/30-v6-turbo-phev-f1-dct/2-portas/2023-2024/51679769?pos=q51679769g:&np=1',
+        price: 'R$ 3.599.000'
+      },
+      {
+        name: 'MERCEDES-BENZ G 63 AMG',
+        preDescription: '2024/2024',
+        description: 'Um SUV de luxo icônico que combina o robusto design off-road da Classe G com o desempenho dinâmico da divisão AMG. Equipado com um potente motor V8 biturbo de 4.0 litros, o G 63 AMG produz 585 cavalos de potência e 850 Nm de torque, proporcionando uma aceleração de 0 a 100 km/h em apenas 4,5 segundos. O sistema de tração integral 4MATIC garante aderência excepcional em todos os tipos de terreno, enquanto a transmissão AMG SPEEDSHIFT TCT de 9 velocidades oferece trocas de marcha rápidas e suaves, otimizando a performance e o conforto. Com sua carroceria robusta e marcante, o G 63 AMG mantém o design clássico da Classe G, enriquecido com elementos exclusivos da AMG, como rodas de liga leve, escapamento duplo e detalhes em fibra de carbono. ',
+        image: 'mercedes-g63.png',
+        link: 'https://www.webmotors.com.br/comprar/mercedes-benz/g-63-amg/40-v8-turbo-gasolina-4matic-speedshift/4-portas/2024/52940699?pos=c52940699g:&np=1',
+        price: 'R$ 2.790.000'
+      },
+      {
+        name: 'FERRARI PUROSANGUE',
+        preDescription: '2024/2024',
+        description: 'O primeiro SUV da icônica marca italiana, projetado para combinar o desempenho lendário da Ferrari com a versatilidade de um veículo utilitário esportivo. Equipado com um motor V12 naturalmente aspirado de 6.5 litros, a Purosangue entrega impressionantes 725 cavalos de potência e 716 Nm de torque, oferecendo uma aceleração de 0 a 100 km/h em apenas 3,3 segundos. A transmissão F1-DCT (Dual-Clutch Transmission) de 8 velocidades proporciona trocas de marcha rápidas e precisas, maximizando a resposta do veículo e a experiência de condução esportiva. ',
+        image: 'ferrari-purosangue.png',
+        link: 'https://www.webmotors.com.br/comprar/ferrari/purosangue/65-v12-gasolina-f1-dct/2-portas/2024/53915999?pos=e53915999g:&np=2',
+        price: 'R$ 7.640.000'
+      },
+      {
+        name: 'PORSCHE 911',
+        preDescription: '2023/2023',
+        description: 'Um supercarro esportivo projetado para entregar uma experiência de condução inigualável, tanto em pista quanto em estrada. Equipado com um motor boxer de 6 cilindros (H6) naturalmente aspirado de 4.0 litros, o GT3 RS desenvolve 525 cavalos de potência e 465 Nm de torque, oferecendo um desempenho explosivo e uma aceleração de 0 a 100 km/h em apenas 3,2 segundos. O câmbio PDK (Porsche Doppelkupplung) de 7 velocidades proporciona trocas de marcha ultrarrápidas e suaves, permitindo ao motorista manter o máximo controle e performance.',
+        image: 'porsche-911.png',
+        link: 'https://www.webmotors.com.br/comprar/porsche/911/40-24v-h6-gasolina-gt3-rs-pdk/2-portas/2023/52980199?pos=b52980199g:&np=1',
+        price: 'R$ 3.500.000'
+      },
+      {
+        name: 'ROLLS-ROYCE CULLINAN',
+        preDescription: '2024/2024',
+        description: 'SUV de luxo por excelência, combinando a inigualável sofisticação da Rolls-Royce com a versatilidade e a robustez de um utilitário esportivo. Equipado com um motor V12 biturbo de 6.7 litros, o Cullinan entrega 571 cavalos de potência e 850 Nm de torque, proporcionando uma aceleração suave e poderosa, típica da marca. A transmissão automática de 8 velocidades oferece trocas de marcha quase imperceptíveis, garantindo uma experiência de condução extremamente confortável e refinada.',
+        image: 'rollsroyce.png',
+        link: 'https://www.webmotors.com.br/comprar/rolls-royce/cullinan/67-v12-turbo-gasolina-automatico/4-portas/2024/53164572?pos=a53164572g:&np=1',
+        price: 'R$ 5.299.990'
+      },
+    ];
+
+    function loadVehicles() {
+      const vehicleList = document.getElementById('vehicle-list');
+
+      vehicles.forEach(vehicle => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+      <a href="${vehicle.link}" target="_blank">
+        <img src="${vehicle.image}" alt="${vehicle.name}" />
+        <h3>${vehicle.name}</h3>
+        <div class="pre-description">${vehicle.preDescription}</div>
+        <p>${vehicle.description}</p>
+        <span class="price">${vehicle.price}</span>
+      </a>
+    `;
+        vehicleList.appendChild(li);
+      });
+    }
+
+    // Carrega os veículos ao carregar a página
+    window.onload = loadVehicles;
+
+
+
+    //INICIO ENTRE EM CONTATO
+    function openContactForm() {
+      document.getElementById("contact-form-overlay").style.display = "block";
+    }
+
+    function closeContactForm() {
+      document.getElementById("contact-form-overlay").style.display = "none";
+    }
+
+    function submitForm(event) {
+      event.preventDefault();
+      alert("Obrigado por entrar em contato! Responderemos em breve.");
+      closeContactForm();
+    }
+  </script>
+
+  <script src="https://kit.fontawesome.com/0bf51e96d1.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

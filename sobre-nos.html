@@ -1,0 +1,150 @@
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LK Veículos</title>
+  <link rel="stylesheet" href="style-home.css">
+  <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+</head>
+
+<body>
+
+
+  <div class="header">
+    <a href="index.html" class="logo">LK Veículos</a>
+    <div class="header-right">
+      <a href="index.html">Home</a>
+      <a href="vehicles.html">Veículos</a>
+      <a class="active" href="sobre-nos.html">Sobre Nós</a>
+
+    </div>
+  </div>
+
+
+  <!-- Botão de Mensagem Flutuante -->
+  <button class="floating-button" onclick="openContactForm()">
+    <i class="fas fa-phone"></i>
+  </button>
+
+  <div id="contact-form-overlay" class="overlay">
+    <div class="contact-form">
+      <span class="close-btn" onclick="closeContactForm()">&times;</span>
+      <h2>Entre em Contato</h2>
+      <form id="contact-form" onsubmit="submitForm(event)">
+        <input type="text" placeholder="Seu Nome" required>
+        <input type="email" placeholder="Seu Email" required>
+        <textarea placeholder="Sua Mensagem" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+
+
+  <main id="sobree">
+    <div class="content">
+      <h1>Sobre Nós</h1>
+      <p>Bem-vindo à LK Veículos! Desde 2024, nossa missão é facilitar a compra e a venda de veículos para nossos clientes com o máximo de eficiência e transparência. Somos uma equipe apaixonada e dedicada a oferecer soluções inovadoras e de alta qualidade, transformando o processo de compra e venda em uma experiência simples e satisfatória.</p>
+      <p>Nossos valores de integridade, inovação e respeito são a base de tudo o que fazemos. Acreditamos em construir relacionamentos duradouros com nossos clientes, oferecendo um atendimento personalizado e soluções que atendem às suas necessidades específicas.</p>
+      <p>Conheça mais sobre nossa equipe:</p>
+      <div class="team">
+        <div class="team-member">
+          <img src="foto-dono1.jpg" alt="Dono 1">
+          <p><strong>Leonardo F. Figueiredo</strong> - Fundador</p>
+        </div>
+        <div class="team-member">
+          <img src="foto-dono2.jpg" alt="Dono 2">
+          <p><strong>Kaio da Silva</strong> - Fundador</p>
+        </div>
+      </div>
+      <p>Nós os fundadores da LK Veículos, somos apaixonados por carros e estamos a oferecer o melhor para nossos clientes. Com uma ampla experiência no setor automotivo, nós possuímos um conhecimento profundo e uma abordagem inovadora para garantir que cada cliente encontre o veículo perfeito para suas necessidades.</p>
+      <p>Aqui nossa missão vai além de apenas ajudar as pessoas a comprar seus carros. Estamos comprometidos em proporcionar uma experiência excepcional e garantir que cada cliente se sinta valorizado e satisfeito. Entre em contato conosco e descubra como podemos ajudá-lo a encontrar o veículo dos seus sonhos com a confiança e o suporte que você merece.</p>
+    </div>
+  </main>
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <footer>
+    <div class="footer">
+      <div class="row">
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+      </div>
+
+      <div class="row">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="vehicles.html">Veículos</a></li>
+          <li><a href="sobre-nos.html">Sobre Nós</a></li>
+
+        </ul>
+      </div>
+
+      <div class="row">
+        Copyright © 2024 LK Veículos - Todos os Direitos Reservados
+      </div>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+
+    function openContactForm() {
+      document.getElementById("contact-form-overlay").style.display = "block";
+    }
+
+    function closeContactForm() {
+      document.getElementById("contact-form-overlay").style.display = "none";
+    }
+
+    function submitForm(event) {
+      event.preventDefault();
+
+
+      alert("Obrigado por entrar em contato! Responderemos assim que possível");
+      closeContactForm();
+    }
+  </script>
+  <script src="https://kit.fontawesome.com/0bf51e96d1.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
